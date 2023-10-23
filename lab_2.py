@@ -107,7 +107,7 @@ for type_ in range(2):
     Y_1 = []
     Y_2 = []
     Y_3 = []
-    for power_ in range(1, 14):
+    for power_ in range(0, 14):
         table, target = generate_data(m, type_ + 1)
         X.append(power_)
 
@@ -133,7 +133,6 @@ for type_ in range(2):
             th_1.append(s)
         else:
             th_2.append(s)
-
         m *= 2
     plt.figure(figsize=(16, 6))
     plt.plot(X, Y_1)
