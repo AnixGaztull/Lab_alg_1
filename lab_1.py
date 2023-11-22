@@ -107,22 +107,25 @@ for type_ in range(2):
         table, target = generate_data(m, type_ + 1) # генерация данных и target
 
         start_time = time.time() # засекаем время
-        a = first_alg(table, target)#работа 1 алгоритма N+M
+        for i in range(10):
+            a = first_alg(table, target)#работа 1 алгоритма N+M
         end = time.time()
         t = end - start_time
-        s = (end - start_time) * 1000
+        s = (end - start_time) * 1000 / 10 #10 - количество измерений
         Y_1.append(s)
 
         start_time = time.time()
-        a = second_alg(table, target) # работа 2 алгоритма M * logN
+        for i in range(10):
+            a = second_alg(table, target) # работа 2 алгоритма M * logN
         end = time.time()
-        s = (end - start_time) * 1000
+        s = (end - start_time) * 1000 / 10
         Y_2.append(s)
 
         start_time = time.time()
-        a = third_ald(table, target) # работа 3 алгоритма M(logN-logM+1)
+        for i in range(10):
+            a = third_ald(table, target) # работа 3 алгоритма M(logN-logM+1)
         end = time.time()
-        s = (end - start_time) * 1000
+        s = (end - start_time) * 1000 / 10
         Y_3.append(s)
 
         m *= 2

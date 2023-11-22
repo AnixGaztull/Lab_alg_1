@@ -112,22 +112,25 @@ for type_ in range(2):
         X.append(power_)
 
         start_time = time.time()
-        a = first_alg(table, target)
+        for i in range(10):
+            a = first_alg(table, target)
         end = time.time()
         t = end - start_time
-        s = (end - start_time) * 1000
+        s = (end - start_time) * 100 # * 1000(для переводаа в мс) / 10(количество запусков)
         Y_1.append(s)
 
         start_time = time.time()
-        a = second_alg(table, target)
+        for i in range(10):
+            a = second_alg(table, target)
         end = time.time()
-        s = (end - start_time) * 1000
+        s = (end - start_time) * 100
         Y_2.append(s)
 
         start_time = time.time()
-        a = third_ald(table, target)
+        for i in range(10):
+            a = third_ald(table, target)
         end = time.time()
-        s = (end - start_time) * 1000
+        s = (end - start_time) * 100
         Y_3.append(s)
         if not type_:
             th_1.append(s)
@@ -139,7 +142,7 @@ for type_ in range(2):
     plt.plot(X, Y_2)
     plt.plot(X, Y_3)
     plt.ylabel('Time,[ms]')
-    plt.xlabel('M, 2**M')
+    plt.xlabel('M, (2**M)')
     x_ticks = [k for k in range(1, 14)]
     x_labels = [k for k in range(1, 14)]
     plt.xticks(x_ticks, x_labels)
